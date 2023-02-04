@@ -4,4 +4,3 @@ for alpha in range(ord('z'), ord('a')-1, -1):
         print("{}".format(chr(alpha-32)), end="")
     else:
         print(f"{chr(alpha)}", end="")
-
