@@ -2,6 +2,6 @@
 def new_in_list(my_list, idx, element):
     if idx < 0 or idx >= len(my_list):
         return my_list.copy()
-    lst = my_list.copy
-    lst[idx] = element
-    return lst
+    nu_list = my_list.copy
+    nu_list[idx] = element
+    return nu_lst
