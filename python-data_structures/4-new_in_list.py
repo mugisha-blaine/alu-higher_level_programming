@@ -3,5 +3,5 @@ def new_in_list(my_list, idx, element):
     if idx < 0 or idx >= len(my_list):
         return my_list.copy()
     new_list = my_list.copy()
-    element =  new_list[idx]
-    return element
+    element = new_list[idx]
+    return new_list
