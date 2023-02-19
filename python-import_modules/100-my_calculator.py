@@ -24,5 +24,5 @@ if __name__ == "__main__":
             print('{} * {} = {}'.format(a, b, mul(a, b)))
         else:
             a = int(items[0])
-            b = int(items[1])
+            b = int(items[2])
             print('{} / {} = {}'.format(a, b, div(a, b)))
