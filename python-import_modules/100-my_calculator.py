@@ -9,7 +9,7 @@ if __name__ == "__main__":
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     elif argv[2] not in operator:
-        print('Only +, -, * and / can be used')
+        print('Unknown operator. Only +, -, * and / can be used')
         exit(1)
     else:
         if argv[2] == operator[0]:
