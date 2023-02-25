@@ -14,9 +14,8 @@ def roman_to_int(roman_string):
                 if roman_string[:] is j:
                     n = romans[j]
                     return n
-                if roman_string[i:] is j:
-                    n += romans[j]
-                    break
+                if roman_string[i:i+1] is j:
+                    n = n +  romans[j]
         return n
     else:
         return 0
