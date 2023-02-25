@@ -7,15 +7,13 @@ def roman_to_int(roman_string):
     romans['XC'] = 90
     romans['CD'] = 400
     romans['CM'] = 900
-    if roman_string and type(roman_string) == str:
-        n = 0
-        for i in range(len(roman_string)):
-            for j in romans.keys():
-                if roman_string[:] is j:
-                    n = romans[j]
-                    return n
-                if roman_string[i:i+1] is j:
-                    n = romans[j] + n
-        return n
-    else:
-        return 0
+    n=0
+    i=0
+    while i < len(roman_string):
+        if i+1 < len(roman_string) and roman_string[i:i+2] in romans:
+            n += romans[roman_string[i:i+2]]
+            i += 2
+        else:
+            n += romans[roman_string[i]]
+            i += 1
+    return n
