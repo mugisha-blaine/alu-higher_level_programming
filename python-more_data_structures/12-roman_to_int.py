@@ -7,7 +7,7 @@ def roman_to_int(roman_string):
     romans['XC'] = 90
     romans['CD'] = 400
     romans['CM'] = 900
-    if roman_string and type(roman_string) == str:
+    if if not roman_string or not isinstance(roman_string, str):
         return 0
     n = 0
     i = 0
