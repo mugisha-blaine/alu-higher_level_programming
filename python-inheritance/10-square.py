@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-""" A rectangle class"""
+""" A rectangle class """
 
 
 Rectangle = __import__('9-rectangle.py').Rectangle
 
 
 class Square(Rectangle):
-    ''' define square'''
+    """ define square """
     def __init__(self, size):
-        '''instantiation with size '''
+        """ instantiation with size """
         self.__size = size
     def area(self):
-        ''' find an area '''
+        """ find an area """
         return self.__size * self.__size
