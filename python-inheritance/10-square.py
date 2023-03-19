@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-""" A rectangle class """
+"""
+A rectangle class
+"""
 
 
 Rectangle = __import__('9-rectangle.py').Rectangle
