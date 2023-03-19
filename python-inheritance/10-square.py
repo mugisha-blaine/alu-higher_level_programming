@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """
-more class base
+square class
 """
 
 
 Rectangle = __import__('9-rectangle.py').Rectangle
 
+
+''' Square class '''
 
 class Square(Rectangle):
     """ define square """
