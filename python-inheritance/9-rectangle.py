@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Another rectangle class
+Another rectangle base
 """
 
 
