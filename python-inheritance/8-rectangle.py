@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-'''Inherit from other class.'''
+"""Inherit from other class."""
 
 
 class Rectangle(BaseGeometry):
-    '''Implements a rectangle.'''
+    """Implements a rectangle."""
 
     def __init__(self, width, height):
         self.integer_validator("width", width)
