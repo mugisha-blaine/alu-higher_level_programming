@@ -8,12 +8,10 @@ function that inserts a line of text to a file,\
 def append_after(filename="", search_string="", new_string=""):
     '''module Search and update
     '''
-    with open(filename, 'r+') as b:
-        lines = b.readlines()
-        bi = 0
-        for line in lines:
-            if line.find(search_string) is not -1:
-                lines.insert(bi + 1, new_string)
-            bi += 1
-        b.seek(0)
-        b.write("".join(lines))
+    with open(filename, 'r') as dub:
+        for line in dub:
+            text += line
+            if search_string in line:
+                text += new_string
+    with open(filename, "w") as bi:
+        bi.write(text)

@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import sys
-"""parsing the log"""
+"""
+parsing the log
+"""
 
 def print_status():
     '''
