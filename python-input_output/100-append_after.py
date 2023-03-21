@@ -16,4 +16,4 @@ def append_after(filename="", search_string="", new_string=""):
             if search_string in line:
                 words += new_string
     with open(filename, "w") as bi:
-        bi.write(text)
+        bi.write(words)
