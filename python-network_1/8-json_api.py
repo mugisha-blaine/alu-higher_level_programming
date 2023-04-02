@@ -16,6 +16,7 @@ if __name__ == '__main__':
         if len(respo_dict) == 0 or not id or not name:
             print("No result")
         else:
-            print("[{}] {}".format(respo_dict.get('id'), respo_dict.get('name')))
+            print("[{}] {}".format(respo_dict.get('id')\
+            , respo_dict.get('name')))
     except:
         print("Not a valid JSON")
