@@ -7,7 +7,7 @@ and uses the Github API to display your id
 
 import sys
 import requests
-
+"""to get my github credentials"""
 
 username = sys.argv[1]
 password = sys.argv[2]
