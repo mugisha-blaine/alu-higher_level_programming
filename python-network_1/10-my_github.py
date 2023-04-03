@@ -5,6 +5,7 @@ and uses the GitHub API to display the user id
 """
 import requests
 import sys
+from requests import auth
 
 
 if __name__ == "__main__":
