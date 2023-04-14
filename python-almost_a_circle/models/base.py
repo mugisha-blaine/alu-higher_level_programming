@@ -30,7 +30,7 @@ class Base:
         else:
             self.id = id
 
-     @staticmethod
+    @staticmethod
     def to_json_string(list_dicts):
         """
             returns JSON string representation of list_dicts
@@ -56,7 +56,7 @@ class Base:
         with open(json_file, "w") as jfile:
             json.dump(content, jfile)
 
-     @staticmethod
+    @staticmethod
     def from_json_string(json_string):
         """
             returns the list of the JSON string representation
