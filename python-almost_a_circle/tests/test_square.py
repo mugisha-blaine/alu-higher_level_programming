@@ -253,3 +253,9 @@ class TestSquare(unittest.TestCase):
         Square.save_to_file([sq1])
         list_output = Square.load_from_file()
         self.assertEqual(sq1.width, list_output[0].size)
+
+    def save_to_file(self, file):
+        if file is None:
+            raise ValueError("File parameter cannot be None")
+        with open(file, "w") as f:
+            f.write(str(self.side))
