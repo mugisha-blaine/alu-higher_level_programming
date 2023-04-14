@@ -131,6 +131,7 @@ class Rectangle(Base):
         '''
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
+   
     def update(self, *args, **kwargs):
         '''
             Updates the arguments in the class
@@ -147,4 +148,3 @@ class Rectangle(Base):
             self.y = args[4]
         except IndexError:
             pass
-     
