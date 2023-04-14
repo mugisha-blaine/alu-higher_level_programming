@@ -130,8 +130,7 @@ class Rectangle(Base):
             returns a string formart of the rectangle
         '''
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
-                                                       self.width, self.height)
-   
+                                                       self.width, self.height)   
     def update(self, *args, **kwargs):
         '''
             Updates the arguments in the class
