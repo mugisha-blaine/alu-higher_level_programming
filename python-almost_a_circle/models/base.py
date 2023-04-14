@@ -100,4 +100,3 @@ class Base:
             instances.append(temp)
 
         return instances
-
