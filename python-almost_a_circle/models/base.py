@@ -64,3 +64,40 @@ class Base:
         if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
+
+     @classmethod
+    def create(cls, **dictionary):
+        """
+            returns an instance with all attributes already set
+        """
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        if cls.__name__ == "Rectangle":
+            mod = Rectangle(2, 7)
+        elif cls.__name__ == "Square":
+            mod = Square(6)
+        mod.update(**dictionary)
+        return (mod)
+
+    @classmethod
+    def load_from_file(cls):
+        """
+            returns a list of instances
+        """
+        fname = cls.__name__ + ".json"
+
+        try:
+            with open(fname, encoding='utf8') as jfile:
+                content = cls.from_json_string(jfile.read())
+        except:
+            return []
+
+        instances = []
+
+        for instance in content:
+            temp = cls.create(**instance)
+            instances.append(temp)
+
+        return instances
+
