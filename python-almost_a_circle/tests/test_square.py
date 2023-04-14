@@ -254,8 +254,10 @@ class TestSquare(unittest.TestCase):
         list_output = Square.load_from_file()
         self.assertEqual(sq1.width, list_output[0].size)
 
-    def save_to_file(self, file):
-        if file is None:
-            raise ValueError("File parameter cannot be None")
-        with open(file, "w") as f:
-            f.write(str(self.side))
+    def test_stf_None(self):
+        """
+            Test save_to_file with None
+        """
+        Square.save_to_file(None)
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual("[]", f.read())
