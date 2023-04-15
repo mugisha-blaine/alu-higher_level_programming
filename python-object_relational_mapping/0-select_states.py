@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 
-
 '''
 a script that lists all states
 from the database
@@ -18,5 +17,3 @@ if __name__ == "__main__":
     db = cursor.fetchall()
     for x in db:
         print(x)
-    cursor.close()
-    db.close()
