@@ -100,3 +100,91 @@ class Base:
             instances.append(temp)
 
         return instances
+     def save_to_file_csv(cls, list_objs):
+        """
+            serializes in CSV and saves in a file
+        """
+        file_name = cls.__name__ + ".csv"
+
+        if list_objs is None:
+            with open(file_name, "w") as cfile:
+                cfile.write("[]")
+        else:
+            with open(file_name, "w") as cfile:
+                writer = csv.writer(cfile)
+                for obj in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    if cls.__name__ == "Square":
+                        writer.writerow([obj.id, obj.width, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+            deserializes from CSV from a file.
+        """
+        file_name = cls.__name__ + ".csv"
+
+        with open(file_name, "r") as cfile:
+            if cls.__name__ == "Rectangle":
+               reader = csv.DictReader(cfile, fieldnames={'id','width',
+                                                          'height', 'x', 'y'})
+            elif cls.__name__ == "Square":
+               reader = csv.DictReader(cfile, fieldnames={'id', 'size', 'x', 'y'})
+
+            insts = []
+            for inst in reader:
+                inst = {x: int(y) for x, y in inst.items()}
+                temp = cls.create(**inst)
+                insts.append(temp)
+
+        return insts
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''
+            Opens a window and draws all the squares and rectangles
+        '''
+        import turtle
+
+        turtle.penup()
+        turtle.pensize(10)
+        turtle.bgcolor("black")
+        turtle.color("teal")
+        turtle.hideturtle()
+        turtle.goto(-300, 300)
+        turtle.speed(0)
+
+        for instance in list_rectangles:
+            turtle.pendown()
+            for x in range(2):
+                turtle.forward(instance.width)
+                turtle.right(90)
+                turtle.forward(instance.height)
+                turtle.right(90)
+            turtle.penup()
+            if instance.width < 100:
+                move_by = 200
+            else:
+                move_by = instance.width + 30
+            x_coordinate = round(turtle.xcor(), 5)
+            turtle.goto(x_coordinate + move_by, 300)
+
+        turtle.goto(-300, 100)
+        for instance in list_squares:
+            turtle.pendown()
+            for i in range(2):
+                turtle.forward(instance.width)
+                turtle.right(90)
+                turtle.forward(instance.height)
+                turtle.right(90)
+            turtle.penup()
+            if instance.width < 100:
+                move_by = 100
+            else:
+                move_by = instance.width + 30
+            x_coordinate = round(turtle.xcor(), 5)
+            turtle.goto(x_cordinate + move_by, 100)
+
+        turtle.exitonclick()
+
