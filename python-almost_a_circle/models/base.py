@@ -109,15 +109,15 @@ class Base:
         file_name = cls.__name__ + ".csv"
 
         if list_objs is None:
-            with open(fname, "w") as cfile:
+            with open(file_name, "w") as cfile:
                 cfile.write("[]")
         else:
-            with open(fname, "w") as cfile:
+            with open(file_name, "w") as cfile:
                 writer = csv.writer(cfile)
                 for obj in list_objs:
                     if cls.__name__ == "Rectangle":
-                        writer.writerow([obj.id, obj.width, obj.height,\
-                                        obj.x, obj.y])
+                        writer.writerow([obj.id, obj.width, 
+                                         obj.height, obj.x, obj.y])
                     if cls.__name__ == "Square":
                         writer.writerow([obj.id, obj.width, obj.x, obj.y])
 
@@ -133,8 +133,8 @@ class Base:
                reader = csv.DictReader(cfile, fieldnames={'id','width',
                                                           'height', 'x', 'y'})
             elif cls.__name__ == "Square":
-               reader = csv.DictReader(cfile, fieldnames={'id',\
-                                                         'size', 'x', 'y'})
+               reader = csv.DictReader(cfile, fieldnames={'id', 'size',
+                                                          'x', 'y'})
 
             insts = []
             for inst in reader:
@@ -184,10 +184,3 @@ class Base:
                 turtle.right(90)
             turtle.penup()
             if instance.width < 100:
-                move_by = 100
-            else:
-                move_by = instance.width + 30
-            x_coordinate = round(turtle.xcor(), 5)
-            turtle.goto(x_cordinate + move_by, 100)
-
-        turtle.exitonclick()
