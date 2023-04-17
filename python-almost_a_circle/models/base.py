@@ -102,7 +102,7 @@ class Base:
         return instances
 
     @classmethod
-     def save_to_file_csv(cls, list_objs):
+    def save_to_file_csv(cls, list_objs):
         """Serializes list_objs and saves to file"""
         file_name = cls.__name__ + ".csv"
         with open(file_name, "w", newline="") as csvfile:
