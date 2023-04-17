@@ -184,3 +184,10 @@ class Base:
                 turtle.right(90)
             turtle.penup()
             if instance.width < 100:
+                 move_by = 100
+            else:
+                move_by = instance.width + 30
+            x_cordinate = round(turtle.xcor(), 5)
+            turtle.goto(x_cordinate + move_by, 100)
+
+        turtle.exitonclick()
