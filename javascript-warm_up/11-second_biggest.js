@@ -1,19 +1,9 @@
 #!/usr/bin/node
-function second (myArray) {
-  if (myArray.length === 2 || myArray.length === 3) { return (0); }
+const big = process.argv.slice(2).map(Number);
+const biggest = args.sort((a, b) => b - a);
 
-  let big = myArray[2];
-  let secondBig = myArray[3];
-
-  for (let i = 2; i < myArray.length; i++) {
-    if (myArray[i] > big) {
-      secondBig = big;
-      big = myArray[i];
-    } else if (myArray[i] > secondBig && myArray[i] < big) {
-      secondBig = myArray[i];
-    }
-  }
-  return (secondBig);
+if (args.length <= 1) {
+  console.log(0);
+} else {
+  console.log(biggest[1]);
 }
-
-console.log(second(process.argv));
