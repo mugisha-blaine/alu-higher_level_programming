@@ -85,10 +85,10 @@ class Base:
         """
             returns a list of instances
         """
-        fname = cls.__name__ + ".json"
+        file_name = cls.__name__ + ".json"
 
         try:
-            with open(fname, encoding='utf8') as jfile:
+            with open(file_name, encoding='utf8') as jfile:
                 content = cls.from_json_string(jfile.read())
         except:
             return []
@@ -100,3 +100,84 @@ class Base:
             instances.append(temp)
 
         return instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes list_objs and saves to file"""
+        file_name = cls.__name__ + ".csv"
+        with open(file_name, "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes CSV format from a file"""
+        file_name = cls.__name__ + ".csv"
+        try:
+            with open(file_name, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''
+            Opens a window and draws all the squares and rectangles
+        '''
+        import turtle
+
+        turtle.penup()
+        turtle.pensize(10)
+        turtle.bgcolor("black")
+        turtle.color("teal")
+        turtle.hideturtle()
+        turtle.goto(-300, 300)
+        turtle.speed(0)
+
+        for instance in list_rectangles:
+            turtle.pendown()
+            for x in range(2):
+                turtle.forward(instance.width)
+                turtle.right(90)
+                turtle.forward(instance.height)
+                turtle.right(90)
+            turtle.penup()
+            if instance.width < 100:
+                move_by = 200
+            else:
+                move_by = instance.width + 30
+            x_coordinate = round(turtle.xcor(), 5)
+            turtle.goto(x_coordinate + move_by, 300)
+
+        turtle.goto(-300, 100)
+        for instance in list_squares:
+            turtle.pendown()
+            for i in range(2):
+                turtle.forward(instance.width)
+                turtle.right(90)
+                turtle.forward(instance.height)
+                turtle.right(90)
+            turtle.penup()
+            if instance.width < 100:
+                move_by = 100
+            else:
+                move_by = instance.width + 30
+            x_coordinate = round(turtle.xcor(), 5)
+            turtle.goto(x_coordinate + move_by, 100)
+
+        turtle.exitonclick()
