@@ -4,10 +4,10 @@ const fun = 'X';
 if (!isNaN(square)) {
   for (let i = 0; i < square; i++) {
     let times = '';
-    for ( let j = 0; i < square; i++){
+    for (let j = 0; i < square; j++) {
       times = times + fun;
-      }
-      console.log(times);	  
+    }
+    console.log(times);
   }
 } else {
   console.log('Missing number of occurrences');
