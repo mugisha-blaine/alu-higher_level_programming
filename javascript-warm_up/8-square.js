@@ -10,5 +10,5 @@ if (!isNaN(square)) {
     console.log(times);
   }
 } else {
-  console.log('Missing number of occurrences');
+  console.log('Missing size');
 }
