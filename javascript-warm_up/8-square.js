@@ -2,9 +2,7 @@
 const square = parseInt(process.argv[2]);
 const fun = 'X';
 if (!isNaN(square)) {
-  for (let i = 0; i < square; i++) {
-    console.log(fun);
-  }
+  console.log(fun*square);
 } else {
   console.log('Missing size');
 }
