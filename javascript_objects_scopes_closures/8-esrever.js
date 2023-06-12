@@ -4,7 +4,7 @@
 exports.esrever = function (list) {
   const reverseLst = [];
   while (list.length > 0) {
-    reverse_lst.push(list.pop());
+    reverseLst.push(list.pop());
   }
   return reverseLst;
 };
