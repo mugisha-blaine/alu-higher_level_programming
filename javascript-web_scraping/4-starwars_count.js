@@ -10,7 +10,7 @@ request(url, function (error, response, body) {
     const json= JSON.parse(body);
     const results = json['results'];
     let count = 0;
-    const (let i = 0; i < results.length; i++) {
+    for (let i = 0; i < results.length; i++) {
       const chars = (results[i]['characters']);
       for (let j = 0; j < chars.length; j++) {
         const check = chars[j].endsWith('18/');
