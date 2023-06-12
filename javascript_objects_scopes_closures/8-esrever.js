@@ -2,10 +2,9 @@
 // function that returns the reversed version of a list
 
 exports.esrever = function (list) {
-
-  let reversed_list = [];
+  const reverse_lst = [];
   while (list.length > 0) {
-    reversed_list.push(list.pop());
+    reverse_lst.push(list.pop());
   }
-  return reversed_list;
+  return reverse_lst;
 };
