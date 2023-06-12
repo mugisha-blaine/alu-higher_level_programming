@@ -11,7 +11,7 @@ request(url, function (error, response, body) {
     const results = json.results;
     let count = 0;
     for (let i = 0; i < results.length; i++) {
-      const chars = (results[i].characters;
+      const chars = (results[i].characters);
       for (let j = 0; j < chars.length; j++) {
         const check = chars[j].endsWith('18/');
         if (check) {
