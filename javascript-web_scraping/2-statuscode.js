@@ -2,7 +2,7 @@
 // A script that display the status code of a GET request
 
 const url = process.argv[2];
-let request = require('request');
+const request = require('request');
 request(url[2], function (error, response, body) {
   if (error) {
     console.log('error:', error);
