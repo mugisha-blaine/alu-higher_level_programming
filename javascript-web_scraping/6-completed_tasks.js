@@ -10,9 +10,9 @@ request(url, function (error, response, body) {
     const todos = JSON.parse(body);
     const dash = {};
     for (let i = 0; i < todos.length; i++) {
-      let status = (todos[i].completed);
-      let key = todos[i].userId.toString();
-      if (status) {
+      const statuss = (todos[i].completed);
+      const key = todos[i].userId.toString();
+      if (statuss) {
         if (dash[key]) {
           dash[key]++;
         } else {
